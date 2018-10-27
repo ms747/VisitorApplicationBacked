@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-require("dotenv").config({path:"/tank0/Projects/VisitorApplication/server/.env"});
+require("dotenv").config();
 
 const sequelize = new Sequelize(process.env.DATABASE, process.env.USERNAME, process.env.PASSWORD, {
 	host: process.env.HOST,
