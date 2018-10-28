@@ -6,7 +6,7 @@ exports.dropIfExists = function(modelName) {
 		});
 	} else {
 		modelName.sync().then(() => {
-			console.log("Table Created");
+			console.log(modelName.getTableName() +" Table Created");
 			return;
 		});
 	}
