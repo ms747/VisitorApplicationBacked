@@ -26,6 +26,11 @@ router.post("/attendee", async (req, res) => {
 				toMeet: req.body.toMeet,
 				reason: req.body.reason,
 				img: req.file.filename,
+				idProof: req.body.idProof,
+				idProofNumber: req.body.idProofNumber,
+				hasVehicle: req.body.hasVehicle,
+				vechicalNumber: req.body.vechicalNumber,
+				meetType: req.body.meetType
 			}).then(a => {
 				res.json(a).status(200);
 			});

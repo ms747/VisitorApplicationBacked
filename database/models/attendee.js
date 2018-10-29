@@ -27,6 +27,22 @@ const Attendee = db.define("attendee", {
 		type: Sequelize.DATE,
 		defaultValue: Sequelize.NOW,
 	},
+	idProof: {
+		type: Sequelize.STRING,
+	},
+	idProofNumber: {
+		type: Sequelize.STRING,
+	},
+	hasVehicle: {
+		type: Sequelize.BOOLEAN,
+	},
+	vechicalNumber: {
+		type: Sequelize.STRING,
+		allowNull: true
+	},
+	meetType: {
+		type: Sequelize.STRING,
+	},
 });
 
 dropIfExists(Attendee);

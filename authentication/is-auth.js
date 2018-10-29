@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 
 exports.isAuth = (req, res, next) => {
   const authHeader = req.get("Authorization");
-  console.log(authHeader);
 	if (!authHeader) {
 		const err = new Error("No Auth Header");
 		return res.status(401).json({ error: err.message });
