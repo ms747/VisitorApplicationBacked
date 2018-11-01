@@ -30,7 +30,8 @@ router.post("/attendee", async (req, res) => {
 				idProofNumber: req.body.idProofNumber,
 				hasVehicle: req.body.hasVehicle,
 				vechicalNumber: req.body.vechicalNumber,
-				meetType: req.body.meetType
+				meetType: req.body.meetType,
+				entryBy: req.body.entryBy,
 			}).then(a => {
 				res.json(a).status(200);
 			});

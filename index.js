@@ -3,6 +3,7 @@ const cors = require("cors");
 
 const AttendeeRoute = require("./rotues/attendee");
 const SignUpRoute = require("./rotues/signup");
+const OragnizationRoute = require("./rotues/organization");
 const { isAuth } = require("./authentication/is-auth");
 
 const app = express();
@@ -19,6 +20,8 @@ app.use("/static", express.static("uploads"));
 
 app.use(AttendeeRoute);
 app.use(SignUpRoute);
+app.use(OragnizationRoute);
+
 app.get("/isauth", isAuth);
 
 app.use((err, req, res, next) => {

@@ -8,12 +8,11 @@ router.post("/login", async (req, res) => {
 	const foundUser = await User.findOne({ where: { email: req.body.email } });
 	if (foundUser) {
 		const correctPassword = bcrypt.compareSync(req.body.password, foundUser.dataValues.password);
-		if(correctPassword){
-			const userObj = {id:foundUser.dataValues.id,email:foundUser.dataValues.email}
-			const jwtToken = jwt.sign(userObj,process.env.JWT_SECRET,{expiresIn:"1hr"})
-			res.json({token:jwtToken,id:foundUser.dataValues.id}).status(200);
-		}
-		else{
+		if (correctPassword) {
+			const userObj = { id: foundUser.dataValues.id, email: foundUser.dataValues.email, name: foundUser.dataValues.name };
+			const jwtToken = jwt.sign(userObj, process.env.JWT_SECRET, { expiresIn: "1hr" });
+			res.json({ token: jwtToken, id: foundUser.dataValues.id, name: foundUser.dataValues.name }).status(200);
+		} else {
 			return res.status(500).json({ error: "Email & Password Do not match" });
 		}
 	} else {

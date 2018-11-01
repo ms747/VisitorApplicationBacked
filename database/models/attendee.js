@@ -43,6 +43,10 @@ const Attendee = db.define("attendee", {
 	meetType: {
 		type: Sequelize.STRING,
 	},
+	entryBy:{
+		type: Sequelize.STRING,
+		allowNull: false,
+	}
 });
 
 dropIfExists(Attendee);
